@@ -1,0 +1,24 @@
+{
+  "name": "@steadybit/k6",
+  "version": "1.0.0",
+  "description": "Steadybit K6 Extension",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steadybit/k6-extension.git"
+  },
+  "keywords": [
+    "K6",
+    "Steadybit",
+    "load",
+    "test",
+    "chaos",
+    "engineering"
+  ],
+  "author": "Steadybit GmbH",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/steadybit/k6-extension/issues"
+  },
+  "homepage": "https://github.com/steadybit/k6-extension#readme"
+}
