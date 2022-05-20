@@ -2,7 +2,7 @@ import http from 'k6/http';
 import { sleep } from 'k6';
 
 export class Client {
-    constructor(accessKey = __ENV.STEADYBIT_ACCESS_KEY, platformUrl = 'https://platform.steadybit.io') {
+    constructor(accessKey = (__ENV.STEADYBIT_ACCESS_KEY || __ENV.STEADYBIT_TOKEN), platformUrl = 'https://platform.steadybit.io') {
         this.platformUrl = platformUrl;
         this.headers = {
             'Authorization': `accessToken ${accessKey}`,
@@ -11,7 +11,7 @@ export class Client {
     }
 
     start(experimentKey, allowParallel = false) {
-        const response = http.post(`${this.platformUrl}/api/experiments/${experimentKey}/execute?allowParallel=${allowParallel}`, null, { headers: this.headers });
+        const response = http.post(`${this.platformUrl}/api/experiments/${experimentKey}/execute?allowParallel=${allowParallel}`, null, { headers: this.headers, tags: {} });
         if (response.status === 201) {
             let execution = response.headers['Location'];
             this.verifyRunning(execution);
