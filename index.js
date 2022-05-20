@@ -6,7 +6,8 @@ export class Client {
         this.platformUrl = platformUrl;
         this.headers = {
             'Authorization': `accessToken ${accessKey}`,
-            'Accept': 'application/json'
+            'Accept': 'application/json',
+            'User-Agent': 'steadybit/k6'
         };
     }
 
